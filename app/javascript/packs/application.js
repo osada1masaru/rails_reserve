@@ -16,3 +16,6 @@ require("bootstrap/dist/js/bootstrap")
 
 //= require jquery
 //= require bootstrap-sprockets
+
+//= require moment
+//= require bootstrap-datetimepicker

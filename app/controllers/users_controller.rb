@@ -15,11 +15,13 @@ class UsersController < ApplicationController
       redirect_to "/"
     else
       render "users/new"
+    end
   end
 
   def show
     @user = current_user
   end
+
   def edit
   end
 

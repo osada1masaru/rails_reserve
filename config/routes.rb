@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "rooms#index"
 
+  resources :rooms
+  resources :users
+
   get "sessions/new"
   get "/" => "romm#index"
   get "login" => "sessions#new"
@@ -16,9 +19,6 @@ Rails.application.routes.draw do
   get 'users/show'
   get "users/show" => "user#show"
 
-  resources :rooms
-  resources :users
-  
   resources :room do
     resources :reservations
   end

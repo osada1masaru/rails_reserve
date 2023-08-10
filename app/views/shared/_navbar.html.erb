@@ -1,5 +1,4 @@
-    <header>
-      <% if logged_in? %>
+  <header>
       <ul class="nav nav-pills">
         <li class="nav-item">
           <a class="nav-link active" href="#">Active</a>
@@ -16,7 +15,5 @@
           </div>
         </li>
       </ul>
-      <% else %>
-        <a class="nav-link"><%= link_to "新規登録", new_user_path %></a>
-      <% end %>
-    </header>
+        <a class="nav-link"><%= link_to "新規登録", new_user_path %></a> 
+  </header>

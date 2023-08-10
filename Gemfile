@@ -56,6 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 4.3.1'
+
 gem 'rails-i18n'
 gem 'jquery-rails'
 
@@ -64,3 +65,7 @@ gem 'devise-i18n'
 
 gem 'bootstrap3-datetimepicker-rails'
 gem 'momentjs-rails', '>= 2.9.0'
+
+gem 'hamlit'
+
+gem 'pry-rails'

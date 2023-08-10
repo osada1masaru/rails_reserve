@@ -14,8 +14,11 @@ ActiveStorage.start()
 
 require("bootstrap/dist/js/bootstrap")
 
-//= require jquery
-//= require bootstrap-sprockets
+import 'bootstrap';
+import '../stylesheets/application.scss';
 
+//= require jquery
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap-sprockets
+//= Bootstrap

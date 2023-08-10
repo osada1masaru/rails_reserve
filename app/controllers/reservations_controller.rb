@@ -1,5 +1,10 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
+  def index
+  end
+
+  def new
+  end
 
   def create
     room = Room.find(params[:room_id])
@@ -22,7 +27,18 @@ class ReservationsController < ApplicationController
       end
       redirect_to room
   end
+  
+  def show
+  end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
 
   private
     def reservation_params

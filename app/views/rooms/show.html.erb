@@ -2,7 +2,7 @@
 
 <%= form_for [@room, @room.reservations.new] do |f| 
 
-<%= f.hidden_field :room_id, value: @room.id %>
+<%= f.hidden_field :room_id, value: room.id %>
 
 <div class="container">
     <div class='col-md-5'>
@@ -35,6 +35,20 @@
 
 <% end %>
 
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
 
 
-<%= render "reservations/form" %>
+    });
+
+</script>

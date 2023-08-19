@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Reserveapp
   class Application < Rails::Application
-    config.i18n.default_locale = :ja
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
@@ -19,6 +18,7 @@ module Reserveapp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
   end
 end

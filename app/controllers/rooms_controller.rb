@@ -3,51 +3,39 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @rooms = Room.all
+    @rooms = current_user.rooms.all
   end
 
   def new
-    @room = Room.new 
+    @room = current_user.rooms.new 
   end
 
   def create
-    @room = room.new(room_params)
+    @room = current_user.rooms.new(room_params)
     if @room.save
-      flash[:notice] = "保存完了"
+      flash[:notice] = "施設情報登録完了"
       redirect_to :rooms
     else
-      flash[:alert] = "失敗しました"
+      flash[:alert] = "施設情報の登録に失敗しました"
       render "new"
     end
   end
 
   def show
-    @room = Room.find(params[:id])
   end
 
   def edit
   end
 
   def update
-    new_params = room_params
-
-    if @room.update(new_params)
-      flash[:notice] = "保存完了"
-    else
-      flash[:alert] = "失敗しました"
-    end
-    redirect_back(fallback_location: rewuest.referer)
   end
 
   def destroy
   end
 
   private
-    def set_room
-      @room = Room.find(params[:id])
+    def room_params
+      params.require(:room).permit(:name, :details, :price, :address, :image, :user_id)
     end
 
-    def room_params
-      params.require(:room).permit(:name, :introdction, :price, :address)
-    end
 end

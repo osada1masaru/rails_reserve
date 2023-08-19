@@ -1,29 +1,26 @@
-<form class="form-horizontal">
   <h3>Room 新規登録</h3>
     <%= form_with model: @room do |f| %>
-      <br>
-        <div class="form-group">
-          <%= f.label :name ,"施設名" %>
-          <%= f.text_field :name %>
-        </div>
-        <div class="form-group">
-          <%= f.label :detail ,"施設詳細" %>
-          <%= f.text_area :detail %>
-        </div>
-        <div class="form-group">
-          <%= f.label :price ,"料金" %>
-          <%= f.number_field :price %>
-        </div>
-        <div class="form-group">
-          <%= f.label :address ,"住所" %>
-          <%= f.text_field :address %>
-        </div>
-        <div class="form-group">
-          <%= f.label :image ,"画像" %>
-          <%= f.file_field :image %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "登録完了" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :name ,"施設名" %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :details ,"施設詳細" %>
+        <%= f.text_area :details %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price ,"料金" %>
+        <%= f.number_field :price %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address ,"住所" %>
+        <%= f.text_field :address %>
+      </div>
+      <div class="form-group">
+        <%= f.label :image ,"画像" %>
+        <%= f.file_field :image %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "登録完了" %>
+      </div>
     <% end %>
-</form>

@@ -1,10 +1,12 @@
 class Room < ApplicationRecord
   belongs_to :user
   
-  has_many :reservations
+  has_many :reservations, foreign_key: 'Room_id'
   
-  validates :name, presence: true
-  validates :introductin, presence: true 
-  validates :price, presence: true
-  validates :address, presence: true
+  with_options presence: true do
+    validates :name
+    validates :detail
+    validates :price
+    validates :address
+  end
 end

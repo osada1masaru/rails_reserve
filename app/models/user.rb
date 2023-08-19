@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   has_many :rooms
-  has_many :reservations
+  has_many :reservations, foreign_key: 'User_id'
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

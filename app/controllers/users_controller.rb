@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   def index
+    # @user = User.all
   end
 
   def new
@@ -30,4 +33,10 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
+  protected
+    def configure_permitted_parameters
+      devise_parameter_sanitiser.permit(:sign_up, keys: [:name])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    end
 end

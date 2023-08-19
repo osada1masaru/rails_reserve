@@ -1,19 +1,20 @@
 class RoomsController < ApplicationController
-  before_action :set_room, except: [:index, :new, :create]
-  before_action :authenticate_user!, except: [:show]
+  # before_action :set_room, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:index]
 
   def index
-    @rooms = current_user.rooms
+    @rooms = Room.all
   end
 
   def new
-    @room = current_user.rooms.build
+    @room = Room.new 
   end
 
   def create
-    @room = current_user.rooms.build(room_params)
+    @room = room.new(room_params)
     if @room.save
-      redirect_to listing_room_path(@room), notice: "保存完了"
+      flash[:notice] = "保存完了"
+      redirect_to :rooms
     else
       flash[:alert] = "失敗しました"
       render "new"
@@ -21,6 +22,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
   end
 
   def edit

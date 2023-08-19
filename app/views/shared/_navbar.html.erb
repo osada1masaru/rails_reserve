@@ -1,4 +1,6 @@
-  <header>
+  <%
+=begin%>
+ <header>
       <ul class="nav nav-pills">
         <li class="nav-item">
           <a class="nav-link active" href="#">Active</a>
@@ -16,4 +18,33 @@
         </li>
       </ul>
         <a class="nav-link"><%= link_to "新規登録", new_user_path %></a> 
-  </header>
+  </header> 
+<%
+=end%>
+
+  <%# _header.html.erb %>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapseddata-toggle="collapse" data-target="#navigation">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%# deviseでヘルパーとして追加されたuser_signed_in?メソッドを使用する %>
+      <% if user_signed_in? %>
+        <a class="navbar-brand" href="/">Top</a>
+        <%= link_to '新規作成', new_user_session_path %>
+        <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <a class="navbar-brand" href="/">新規ユーザさんのページ</a>
+        <%= link_to 'ユーザ登録', new_user_registration_path %>
+        <%= link_to 'ログイン', new_user_session_path %>
+      <% end %>
+    </div>
+    
+    <%# 右側に表示するログインユーザの名前 %>
+    <div class="collapse navbar-collapse" id="navigation">
+      <p class="navbar-text navbar-right"></p>
+  </div>
+</nav>

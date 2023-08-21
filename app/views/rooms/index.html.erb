@@ -3,20 +3,26 @@
 <table>
   <thead>
     <tr>
+      <th>施設画像</th>
       <th>施設名</th>
       <th>施設詳細</th>
       <th>料金</th>
       <th>住所</th>
+      <th>詳細</th>
+      <th>削除</th>
     </tr>
   </thead>
 
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
+        <td><%= image_tag room.iamge %></td>
         <td><%= room.name %></td>
         <td><%= room.details %></td>
         <td><%= room.price %></td>
         <td><%= room.address %></td>
+        <td><%= link_to "詳細", room %></td>
+        <td><%= button_to "削除", room_path(room), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

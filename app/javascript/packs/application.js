@@ -17,7 +17,9 @@ require("bootstrap/dist/js/bootstrap")
 import 'bootstrap';
 import '../stylesheets/application.scss';
 
+//= require rails_ujs
 //= require jquery
+//= require jquery_ujs
 //= require moment
 //= require bootstrap-datetimepicker
 //= require bootstrap-sprockets

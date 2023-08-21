@@ -1,28 +1,4 @@
-  <%
-=begin%>
- <header>
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="rooms/new">施設の新規登録</a>  
-            <a class="dropdown-item" href="resavations">予約済み一覧</a>
-            <a class="dropdown-item" href="#">登録済み一覧</a>
-            <a class="dropdown-item" href="#">アカウント設定</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" data-method="delete" href="/users/sign_out">ログアウト</a>
-          </div>
-        </li>
-      </ul>
-        <a class="nav-link"><%= link_to "新規登録", new_user_path %></a> 
-  </header> 
-<%
-=end%>
 
-  <%# _header.html.erb %>
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -35,7 +11,7 @@
       <% if user_signed_in? %>
         <a class="navbar-brand" href="/">Top</a>
         <%= link_to '新規作成', new_user_session_path %>
-        <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <% else %>
         <a class="navbar-brand" href="/">新規ユーザさんのページ</a>
         <%= link_to 'ユーザ登録', new_user_registration_path %>
@@ -47,4 +23,4 @@
     <div class="collapse navbar-collapse" id="navigation">
       <p class="navbar-text navbar-right"></p>
   </div>
-</nav>
+</nav> 

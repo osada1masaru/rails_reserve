@@ -1,6 +1,8 @@
 <h3>Room 詳細</h3>
 
-<h3>ユーザー詳細</h3>
+<% if @room.image.attached? %>
+  <%= image_tag @room.image %>
+<% end %>
 
 <table>
   <tr>
@@ -9,7 +11,7 @@
   </tr>
   <tr>
     <th>詳細</th>
-    <td><%= @room.detail %></td>
+    <td><%= @room.details %></td>
   </tr>
   <tr>
     <th>料金</th>
@@ -21,8 +23,10 @@
   </tr>
 </table>
 
+<%= render "shared/form" %>
+
 <div>
   <ul>
-    <li><%= link_to "ユーザー情報一覧に戻る", :rooms %></li>
+    <li><%= link_to "施設一覧に戻る", :rooms %></li>
   </ul>
 </div>

@@ -1,24 +1,27 @@
-<%= form_with model: @reservation do |f| %>
+<%= form_with model: @reservation, local: true do |f| %>
   <div class="card">
     <div class="card-header">
     </div>
     <div class="card-body">
     <form>
-    <div class="form-row">
-      <div class="col">
-        <%= f.label :check_in, "チェックイン" %>
-        <%= f.date_field :start_date, placeholder: "チェックイン", class: "form-control" %>
+      <div class="form-row">
+        <div class="col">
+          <%= f.label :check_in, "チェックイン" %>
+          <%= f.date_field :start_date, placeholder: "チェックイン", class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= f.label :check_out, "チェックアウト" %>
+          <%= f.date_field :end_date, placeholder: "チェックアウト", class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= f.label :people, "宿泊人数" %>
+          <%= f.number_field :people, placeholder: "人", class: "form-control" %>
+        </div>
       </div>
-      <div class="col">
-        <%= f.label :check_out, "チェックアウト" %>
-        <%= f.date_field :end_date, placeholder: "チェックアウト", class: "form-control" %>
-      </div>
-      <div class="col">
-        <%= f.label :people, "宿泊人数" %>
-        <%= f.number_field :people, placeholder: "人", class: "form-control" %>
-      </div>
-    </div>
-  </form>
+    </form>
+    <%= f.hidden_field :room_id %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :price %>
     <br/>
       <%= f.submit "予約する", id: "btn_book", class: "btn btn-danger btn-block" %>
     </div>

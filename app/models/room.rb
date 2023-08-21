@@ -9,5 +9,6 @@ class Room < ApplicationRecord
     validates :details
     validates :price
     validates :address
+    validates :image
   end
 end

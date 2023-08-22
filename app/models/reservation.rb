@@ -8,9 +8,9 @@ class Reservation < ApplicationRecord
     validates :pepple
   end
 
-  validate :start_end_check
+  validate :check_out_check
 
-  def :start_end_check
+  def :check_out_check
     errors.add(:check_out, "の日付を正しく記入してください") unless
     self.check_in < self.check_out
     end

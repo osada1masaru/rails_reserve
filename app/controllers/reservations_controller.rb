@@ -12,13 +12,13 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = current_user.reservation.new(reservation_params)
     @room = Room.find(params[:id])
     if @reservation.save!
       flash[:notice] = "予約完了"
-      redirect_to reservation_path      
+      redirect_to :room
     else
-      render :room
+      render :new
     end
   end
   

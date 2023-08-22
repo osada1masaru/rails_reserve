@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
+  get 'reservations/new'
+  get 'reservations/show'
+
   get 'rooms/index'
   get 'rooms/new'
 
   get 'users/profile'
   get 'users/update'
   get 'users/login'
-
-  get 'reservations/index'
-  get 'reservations/new'
-  get 'reservations/show'
 
   devise_for :users, controllers: {
     registrations: "users/registrations",

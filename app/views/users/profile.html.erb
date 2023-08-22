@@ -1,0 +1,47 @@
+<h3>アカウントページ</h3>
+
+<div class="user-view-box">
+
+  <div class="update-content">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="icon-box">
+          <div class="col-md-9">
+            <label class="col-md-3" for="name">プロフィール画像</label>
+            <%= image_tag "icon_avater.png" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="update-content">
+    <div class="row">
+      <label class="col-md-3" for="name">ユーザー名</label>
+      <div class="col-md-9">
+        <%= @user.name %>
+      </div>
+    </div>
+  </div>
+
+  <div class="update-content">
+    <div class="row">
+      <label class="col-md-3" for="email">メールアドレス</label>
+      <div class="col-md-9">
+        <%= @user.email %>
+      </div>
+    </div>
+  </div>
+
+  <div class="update-content">
+    <div class="row">
+      <label class="col-md-3" for="introduction">自己紹介</label>
+      <div class="col-md-9">
+        <%= @user.introduction %>
+      </div>
+    </div>
+  </div>
+  <div class="update-content">
+    <div class="btn btn-primary"><%= link_to "編集する", edit_user_registration_path, class:"link" %></div>
+  </div>
+</div>

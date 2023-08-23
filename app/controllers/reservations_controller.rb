@@ -12,13 +12,14 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = current_user.reservation.new(reservation_params)
-    @room = Room.find(params[:id])
-    if @reservation.save!
-      flash[:notice] = "予約完了"
-      redirect_to :room
+    @reservation = current_user.reservations.new(reservation_params)
+
+    if @reservation.save
+      flash[:notice] = "予約が完了しました"
+      redirect_to :rooms
     else
-      render :new
+      flash[:alert] = "予約に失敗しました"
+      render "rooms/show"
     end
   end
   
@@ -37,6 +38,6 @@ class ReservationsController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:check_in, :check_out, :pepple)
+      params.require(:reservation).permit(:room_id, :check_in, :check_out, :people, :price)
     end
 end

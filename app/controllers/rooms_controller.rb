@@ -1,9 +1,9 @@
 class RoomsController < ApplicationController
-  # before_action :set_room, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index]
+  helper_method :current_user
 
   def index
-    @rooms = current_user.rooms.all
+    @rooms = Room.all
   end
 
   def new
@@ -26,13 +26,9 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    @room = room.find(params[:id])
   end
 
   def update
-    @room = room.find(params[:id])
-    @room = update params.require(:room).permit(:name, :details, :image)
-    redirect_to :rooms
   end
 
   def destroy

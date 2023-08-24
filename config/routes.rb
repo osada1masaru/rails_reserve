@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get 'rooms/new'
 
   get 'users/profile'
+  get 'users/edit_profile', to: 'users#edit_profile'
   get 'users/update'
   get 'users/login'
+  get 'users/account'
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
@@ -27,7 +29,13 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  
+
+  resources :users, only: [:edit, :update] do
+    member do
+      get 'edit_profile'
+    end
+  end
+
   resources :reservations
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

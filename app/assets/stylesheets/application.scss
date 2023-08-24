@@ -19,6 +19,10 @@
 
 @import 'bootstrap-datetimepicker';
 
+body {
+  margin: 4px;
+}
+
 .header-list{
   background-color: #ccf;
   display: flex;
@@ -39,23 +43,12 @@
 }
 
 ul.dropdown-menu li:hover {
-   background-color: #ffdddd; /* メニュー項目にマウスが載ったときの背景色(淡いピンク) */
-   color: #dd0000;            /* メニュー項目にマウスが載ったときの文字色(濃い赤色) */
+  background-color: #ffdddd;
+  color: #dd0000;
 }
 
-/* ▼サブメニュードロップダウン */
-ul.dropdown-menu ul {
-   display: none;       /* ★1:標準では非表示にする */
-   margin: 0px;         /* ★2:サブメニュー外側の余白(ゼロ) */
-   padding: 0px;        /* ★3:サブメニュー内側の余白(ゼロ) */
-   position: absolute;  /* ★4:絶対配置にする */
-}
-
-/* ---------------------------------- */
-/* ▼サブメニューがある場合に開く処理 */   /* ※サブメニューが1階層しか存在しない場合の記述 */
-/* ---------------------------------- */
 ul.dropdown-menu:hover ul {
-   display: block;      /* ★5:マウスポインタが載っている項目の内部にあるリストを表示する */
+  display: block;
 }
 
 .header-icon{
@@ -66,7 +59,6 @@ ul.dropdown-menu:hover ul {
   width: 100%;
   height: 100%;
 }
-
 
 .mypage-dropdown {
   display: none;
@@ -100,4 +92,16 @@ ul.dropdown-menu:hover ul {
 
 .category-container:hover {
   cursor: pointer;
+}
+
+.TabNavigation {
+  display: flex;
+}
+.TabNavigation_item {
+  font-size: 24px;
+  padding: 8px;
+}
+
+ul {
+  list-style: none;
 }

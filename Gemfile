@@ -69,3 +69,6 @@ gem 'momentjs-rails', '>= 2.9.0'
 
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+
+gem 'carrierwave'
+gem 'ransack'

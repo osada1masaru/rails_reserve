@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.new(reservation_params)
+    @room = Room.find(params[:reservation][:room_id])
 
     if @reservation.save
       flash[:notice] = "予約が完了しました"

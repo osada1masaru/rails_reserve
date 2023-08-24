@@ -1,4 +1,4 @@
-<h3>Rooms Index</h3>
+<%= render "shared/search" %>
 
 <div class="index_container">
   <% @rooms.each do |room| %>
@@ -10,9 +10,9 @@
         <div class="room_content_text">
           <p  class="room_name"><%= room.name%></p>
           <p  class="room_details"><%= room.details%></p>
-          <p  class="room_price">¥<%= room.price%></p>
+          <p  class="room_price">¥<%= room.price%>/日</p>
           <p  class="room_address"><%= room.address%></p>
-          <p  class="room_created"><%= room.created_at.to_s(:datetime_jp) %></p>
+          <p  class="room_created"><%= room.created_at.strftime("%Y/%m/%d") %></p>
         </div>
       </div>
     <% end %>

@@ -25,8 +25,4 @@
 
 <%= render "shared/form" %>
 
-<div>
-  <ul>
-    <li><%= link_to "施設一覧に戻る", :rooms %></li>
-  </ul>
-</div>
+<%= link_to "戻る", request.referer || root_path %>

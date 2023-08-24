@@ -4,6 +4,14 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
+
+    @search = Room.ransack(params[:q])
+    @rooms = @search.result
+  end
+
+  def search
+    @search = Room.ransack(params[:q])
+    @room = @search.result
   end
 
   def new
@@ -22,13 +30,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
-  end
-
-  def edit
-  end
-
-  def update
+    @room = Room.find_by(id: params[:id])
   end
 
   def destroy

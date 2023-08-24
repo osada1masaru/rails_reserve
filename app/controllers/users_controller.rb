@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def update
     @user = current_user
     @user.profile_image.attach(params[:profile_image])
     @user.name = params[:name]
     @user.introduction = params[:introduction]
     
-    if @user.save
+    if @user.update(profile_image: params[:profile_image], name: params[:name], introduction: params[:introduction])
       flash[:notice] = "変更が完了しました"
       redirect_to :rooms
     else
@@ -23,6 +25,6 @@ class UsersController < ApplicationController
   end
 
   def edit_profile
-    @user = current_user
+    @user = User.find_by(id: params[:id])
   end
 end

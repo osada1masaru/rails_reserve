@@ -10,12 +10,11 @@ class Reservation < ApplicationRecord
     validates :people
   end
 
-  validate :start_end_check
+  validate :check_out_after_check_in
 
-  def start_end_check
-    unless check_in == nil || check_out == nil
-    errors.add(:check_out, "の日付を正しく記入してください") unless
-    self.check_in < self.check_out
+  def check_out_after_check_in
+    if check_in.present? && check_out.present? && check_out <= check_in
+      errors.add(:check_out, "の日付を正しく記入してください")
     end
   end
 end

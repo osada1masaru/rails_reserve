@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'reservations/index'
   get 'reservations/new'
@@ -13,16 +15,16 @@ Rails.application.routes.draw do
   get 'users/account'
 
   devise_for :users, controllers: {
-    registrations: "users/registrations",
+    registrations: 'users/registrations',
     sessions: 'users/sessions'
-    }
+  }
 
   devise_scope :user do
-    get "/users/sign_up" => "devise/registrations#new"
-    get "/users/sign_out" => "devise/sessions#destroy"
+    get '/users/sign_up' => 'devise/registrations#new'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  root "rooms#index"
+  root 'rooms#index'
 
   resources :rooms do
     collection do
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:edit, :update] do
+  resources :users, only: %i[edit update] do
     member do
       get 'edit_profile'
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -6,13 +8,13 @@ class UsersController < ApplicationController
     @user.profile_image.attach(params[:profile_image])
     @user.name = params[:name]
     @user.introduction = params[:introduction]
-    
+
     if @user.update(profile_image: params[:profile_image], name: params[:name], introduction: params[:introduction])
-      flash[:notice] = "変更が完了しました"
+      flash[:notice] = '変更が完了しました'
       redirect_to :rooms
     else
-      flash[:alert] = "変更に失敗しました"
-      render "users/profile"
+      flash[:alert] = '変更に失敗しました'
+      render 'users/profile'
     end
   end
 

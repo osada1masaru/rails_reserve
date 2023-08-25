@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -16,29 +18,27 @@ class ReservationsController < ApplicationController
     @room = Room.find(params[:reservation][:room_id])
 
     if @reservation.save
-      flash[:notice] = "予約が完了しました"
+      flash[:notice] = '予約が完了しました'
       redirect_to :rooms
     else
-      flash[:alert] = "予約に失敗しました"
-      render "rooms/show"
+      flash[:alert] = '予約に失敗しました'
+      render 'rooms/show'
     end
   end
-  
+
   def show
     @reservation = Reservation.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   private
-    def reservation_params
-      params.require(:reservation).permit(:room_id, :check_in, :check_out, :people, :price)
-    end
+
+  def reservation_params
+    params.require(:reservation).permit(:room_id, :check_in, :check_out, :people, :price)
+  end
 end

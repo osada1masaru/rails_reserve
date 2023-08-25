@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddRoomIdToReservations < ActiveRecord::Migration[6.1]
   def change
     add_column :reservations, :room_id, :integer

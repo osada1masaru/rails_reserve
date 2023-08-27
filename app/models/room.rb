@@ -19,6 +19,7 @@ class Room < ApplicationRecord
     validates :details
     validates :price
     validates :address
-    validates :image
   end
+
+  validates :price, numericality: { only_integer: true, greater_than: 0 }
 end

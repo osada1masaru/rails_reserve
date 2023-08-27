@@ -105,3 +105,26 @@ ul.dropdown-menu:hover ul {
 ul {
   list-style: none;
 }
+
+.RecommendAreas-tokyo,.RecommendAreas-osaka,.RecommendAreas-kyoto,.RecommendAreas-sapporo {
+  background-size: cover;
+  width: 200px;
+  height: 400px;
+  margin: 12px;
+}
+
+.RecommendAreas-tokyo {
+  background-image: url(asset-path("tokyo.image.jpg"));
+}
+
+.RecommendAreas-osaka {
+  background-image: url(asset-path("osaka.image.jpg"));
+}
+
+.RecommendAreas-kyoto {
+  background-image: url(asset-path("kyoto.image.jpg"));
+}
+
+.RecommendAreas-sapporo {
+  background-image: url(asset-path("sapporo.image.jpg"));
+}

@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  root 'rooms#index'
+  root 'rooms#top'
 
   resources :rooms do
     collection do

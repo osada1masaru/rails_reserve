@@ -12,11 +12,12 @@ class Reservation < ApplicationRecord
     validates :people
   end
 
+  validates :people, numericality: { only_integer: true, greater_than: 0 }
+
   validate :check_out_after_check_in
 
   def check_out_after_check_in
     return unless check_in.present? && check_out.present? && check_out <= check_in
-
     errors.add(:check_out, 'の日付を正しく記入してください')
   end
 end

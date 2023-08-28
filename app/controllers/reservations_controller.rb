@@ -26,15 +26,20 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def confirm
+    @reservation = Reservation.new(reservation_params)
+    @room = Room.find(params[:reservation][:room_id])
+    if @reservation.invalid?
+      render 'reservations/confirm'
+    else
+      flash[:alert] = "予約情報を正しく記入してください"
+      render 'rooms/show'
+    end
+  end
+
   def show
     @reservation = Reservation.find(params[:id])
   end
-
-  def edit; end
-
-  def update; end
-
-  def destroy; end
 
   private
 

@@ -13,5 +13,4 @@ class User < ApplicationRecord
 
   attr_accessor :current_password
 
-  validates :name, presence: true
 end

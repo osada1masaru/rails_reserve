@@ -4,6 +4,10 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   helper_method :current_user
 
+  def top
+    @search = Room.ransack(params[:q])
+  end
+
   def index
     @rooms = Room.all
 

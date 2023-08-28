@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'reservations/index'
   get 'reservations/new'
   get 'reservations/show'
+  post 'reservations/confirm'
+  post 'reservations/back'
+  post 'reservations/complete'
 
   get 'rooms/index'
   get 'rooms/new'

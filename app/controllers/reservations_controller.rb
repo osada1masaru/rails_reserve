@@ -32,7 +32,7 @@ class ReservationsController < ApplicationController
     if @reservation.invalid?
       render 'reservations/confirm'
     else
-      flash[:alert] = "予約情報を正しく記入してください"
+      flash[:alert] = '予約情報を正しく記入してください'
       render 'rooms/show'
     end
   end

@@ -8,6 +8,19 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import 'bootstrap';
+import '../stylesheets/application.scss';
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require("bootstrap/dist/js/bootstrap")
+
+//= require rails_ujs
+//= require jquery
+//= require jquery_ujs
+//= require moment
+//= require bootstrap-datetimepicker
+//= require bootstrap-sprockets
+//= Bootstrap
